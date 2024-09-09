@@ -1,14 +1,11 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { ConfigModule } from '@nestjs/config';
-import { Configuration } from './config/configuration';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
-
-const
-  configuration = Configuration();
+import { User } from './users/user.model';
 
 @Module({
   imports: [
@@ -16,16 +13,22 @@ const
     UsersModule,
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [Configuration]
+      envFilePath: '.env'
     }),
-    SequelizeModule.forRoot({
-      dialect: 'mysql',
-      host: configuration.mysql.host,
-      port: configuration.mysql.port,
-      username: configuration.mysql.username,
-      password: configuration.mysql.password,
-      database: configuration.mysql.database,
-      models: [],
+    SequelizeModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        dialect: 'mysql',
+        host: configService.get<string>('MYSQL_HOST'),
+        port: configService.get<number>('MYSQL_TCP_PORT'),
+        username: configService.get<string>('MYSQL_USER'),
+        password: configService.get<string>('MYSQL_PASSWORD'),
+        database: configService.get<string>('MYSQL_DATABASE'),
+        autoLoadModels: true,
+        synchronize: true,
+        models: [User]
+      }),
     }),
   ],
   controllers: [AppController],
