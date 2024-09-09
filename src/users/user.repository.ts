@@ -9,8 +9,10 @@ export class UserRepository {
     private userModel: typeof User,
   ) {}
 
-  async createUser(name: string, email: string, phone: string): Promise<User> {
-    return this.userModel.create({ name, email, phone });
+  async createUser(user: User): Promise<User> {
+    return this.userModel.create({
+      ...user
+    });
   }
 
   async findById(id: number): Promise<User> {

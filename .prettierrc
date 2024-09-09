@@ -1,4 +1,12 @@
 {
+  "trailingComma": "all",
+  "endOfLine": "auto",
+  "semi": true,
   "singleQuote": true,
-  "trailingComma": "all"
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "proseWrap": "never",
+  "trimTrailingWhitespace": true,
+  "insertFinalNewline": true
 }

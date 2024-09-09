@@ -8,11 +8,9 @@ export class UsersController {
 
   @Post('add-user')
   createUser(
-    @Body('name') name: string,
-    @Body('email') email: string,
-    @Body('phone') phone: string,
+    @Body() user: User
   ): Promise<User> {
-    return this.usersService.createUser(name, email, phone);
+    return this.usersService.createUser(user);
   }
 
   @Get('get-user/:id')

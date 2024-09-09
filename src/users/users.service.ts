@@ -6,8 +6,8 @@ import { User } from './user.model';
 export class UsersService {
   constructor(private readonly userRepository: UserRepository) {}
 
-  async createUser(name: string, email: string, phone: string): Promise<User> {
-    return this.userRepository.createUser(name, email, phone);
+  async createUser(user: User): Promise<User> {
+    return this.userRepository.createUser(user);
   }
 
   async findById(id: number): Promise<User> {
