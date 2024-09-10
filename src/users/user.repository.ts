@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { User } from './user.model';
+import { CreateUserDto } from './dto/create-user.dto';
 
 @Injectable()
 export class UserRepository {
@@ -9,9 +10,9 @@ export class UserRepository {
     private userModel: typeof User,
   ) {}
 
-  createUser(user: User): Promise<User> {
+  createUser(createUserDto: CreateUserDto): Promise<User> {
     return this.userModel.create({
-      ...user
+      ...createUserDto
     });
   }
 

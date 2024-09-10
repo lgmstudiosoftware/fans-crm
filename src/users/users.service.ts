@@ -1,13 +1,14 @@
 import {Injectable, BadRequestException } from '@nestjs/common';
 import { UserRepository } from './user.repository';
 import { User } from './user.model';
+import { CreateUserDto } from './dto/create-user.dto';
 
 @Injectable()
 export class UsersService {
   constructor(private readonly userRepository: UserRepository) {}
 
-  createUser(user: User): Promise<User> {
-    return this.userRepository.createUser(user);
+  createUser(createUserDto: CreateUserDto): Promise<User> {
+    return this.userRepository.createUser(createUserDto);
   }
 
   findOne(username: string): Promise<User> {
