@@ -12,7 +12,7 @@ async function bootstrap() {
     .setGlobalPrefix('api/v1')
     .useGlobalPipes(new ValidationPipe());
 
-  await app.listen(3000);
+  await app.listen(3001);
 }
 
 bootstrap();
