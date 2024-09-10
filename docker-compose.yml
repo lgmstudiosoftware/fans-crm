@@ -3,10 +3,10 @@ version: "3.8"
 services:
   mysql:
     container_name: mysql
-    hostname: nysql
+    hostname: mysql
     image: mysql:8.4.2
     env_file:
-      - .env
+      - ./backend/.env
     volumes:
       - ./backend/database:/var/lib/mysql
     ports:
