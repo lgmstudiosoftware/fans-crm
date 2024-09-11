@@ -11,12 +11,10 @@ export default {
     },
   },
   babel: {
-    plugins: [
-      ['@babel/plugin-proposal-decorators', { legacy: true }],
-    ],
+    plugins: [['@babel/plugin-proposal-decorators', { legacy: true }]],
   },
   devServer: {
-    port: 3001
+    port: 3001,
   },
   eslint: {
     enable: true,
