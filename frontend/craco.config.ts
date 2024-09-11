@@ -4,7 +4,8 @@ export default {
   webpack: {
     alias: {
       '@components': resolve(__dirname, 'src/components'),
-      '@utils': resolve(__dirname, 'src/utils'),
+      '@pages': resolve(__dirname, 'src/pages'),
+      '@layouts': resolve(__dirname, 'src/layouts'),
     },
     configure: (webpackConfig: any) => {
       return webpackConfig;
