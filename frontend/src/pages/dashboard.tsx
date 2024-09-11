@@ -4,7 +4,7 @@ const Dashboard = () => {
   return (
     <>
       <div className='flex items-center justify-center flex-col'>
-        <h1 className='text-3xl text-center font-bold underline'>
+        <h1 className='text-3xl text-center font-bold'>
           Welcome to the main page
         </h1>
         <p className='py-6'>
@@ -20,7 +20,7 @@ const Dashboard = () => {
         </p>
         <Link to='login'>
           <button className='mx-auto text-center w-[200px] rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>
-            Sign In
+            Authorization
           </button>
         </Link>
       </div>
