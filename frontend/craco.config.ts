@@ -6,6 +6,7 @@ export default {
       '@components': resolve(__dirname, 'src/components'),
       '@pages': resolve(__dirname, 'src/pages'),
       '@layouts': resolve(__dirname, 'src/layouts'),
+      '@routers': resolve(__dirname, 'src/routers'),
     },
     configure: (webpackConfig: any) => {
       return webpackConfig;

@@ -19,6 +19,7 @@
     "paths": {
       "@pages/*": ["pages/*"],
       "@layouts/*": ["layouts/*"],
+      "@routers/*": ["routers/*"],
       "@components/*": ["components/*"]
     }
   },

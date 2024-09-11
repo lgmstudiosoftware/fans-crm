@@ -1,14 +1,17 @@
-import React from 'react';
+import { lazy } from 'react';
 import './index.css';
-import DefaultLayout from '@layouts/default';
+import Routers from '@routers/index';
+
+const DefaultLayout = lazy(() => import('@layouts/default'));
 
 const App = () => {
   return (
     <>
       <DefaultLayout>
         <h1 className='text-3xl text-center font-bold underline'>
-          Hello world!
+          Welcome to the main page
         </h1>
+        <Routers />
       </DefaultLayout>
     </>
   );
