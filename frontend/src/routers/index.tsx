@@ -1,14 +1,23 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { useAuth } from '@providers/auth';
 
 const Dashboard = lazy(() => import('@pages/dashboard'));
 const SignIn = lazy(() => import('@pages/auth/sign-in'));
+
+const PrivateRoute = () => {
+  const user = useAuth();
+  if (!user.token) return <Navigate to='/login' />;
+  return <Outlet />;
+};
 
 const Routers = () => {
   return (
     <Suspense>
       <Routes>
-        <Route path='/' element={<Dashboard />}></Route>
+        <Route element={<PrivateRoute />}>
+          <Route path='/' element={<Dashboard />} />
+        </Route>
         <Route path='login' element={<SignIn />} />
       </Routes>
     </Suspense>

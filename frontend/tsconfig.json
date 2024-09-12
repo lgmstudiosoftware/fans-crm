@@ -20,7 +20,10 @@
       "@pages/*": ["pages/*"],
       "@layouts/*": ["layouts/*"],
       "@routers/*": ["routers/*"],
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
+      "@providers/*": ["providers/*"],
+      "@config/*": ["config/*"]
     }
   },
   "include": ["src"]

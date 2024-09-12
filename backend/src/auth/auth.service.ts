@@ -1,7 +1,6 @@
 import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
-import { User } from '../users/user.model';
 
 @Injectable()
 export class AuthService {
@@ -13,7 +12,7 @@ export class AuthService {
   async signIn(
     username: string,
     password: string,
-  ): Promise<{ access_token: string }> {
+  ): Promise<{ user: any, access_token: string }> {
 
     if (!username || !password) {
       throw new BadRequestException(`empty username or password`);
@@ -30,7 +29,7 @@ export class AuthService {
       payload = { login: user.email, password: user.password };
 
     return {
-      ...{
+      user: {
         name: user?.name,
         phone: user?.phone,
         email: user?.email
