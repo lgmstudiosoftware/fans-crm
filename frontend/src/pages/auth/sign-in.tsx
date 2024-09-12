@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-const SignInForm = lazy(() => import('@components/forms/sign-in'));
+const SignInForm = lazy(() => import('@components/auth/forms/sign-in'));
 
 const SignIn = () => {
   return (

@@ -18,7 +18,7 @@ const SignIn = () => {
   const handleSubmitEvent = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (input.username !== '' && input.password !== '') {
-      auth.loginAction(input);
+      auth.handleLogin(input);
       return;
     }
   };

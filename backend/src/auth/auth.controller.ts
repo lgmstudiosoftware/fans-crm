@@ -24,6 +24,6 @@ export class AuthController {
   @UseGuards(AuthGuard)
   @Get('profile')
   getProfile(@Request() req: any) {
-    return req.user;
+    return this.authService.findOne(req.user?.login);
   }
 }

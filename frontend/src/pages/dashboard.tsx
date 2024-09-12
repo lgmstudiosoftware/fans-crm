@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+import { lazy } from 'react';
+
+const Profile = lazy(() => import('@components/auth/profile'));
 
 const Dashboard = () => {
   return (
@@ -18,11 +20,7 @@ const Dashboard = () => {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </p>
-        <Link to='login'>
-          <button className='mx-auto text-center w-[200px] rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'>
-            Authorization
-          </button>
-        </Link>
+        <Profile />
       </div>
     </>
   );
