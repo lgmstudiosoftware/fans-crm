@@ -12,7 +12,7 @@ export class UserRepository {
 
   createUser(createUserDto: CreateUserDto): Promise<User> {
     return this.userModel.create({
-      ...createUserDto
+      ...createUserDto,
     });
   }
 
@@ -23,8 +23,8 @@ export class UserRepository {
   findOne(username: string): Promise<User> {
     return this.userModel.findOne({
       where: {
-        email: username
-      }
-    })
+        email: username,
+      },
+    });
   }
 }

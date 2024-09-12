@@ -1,4 +1,4 @@
-import {Injectable, BadRequestException } from '@nestjs/common';
+import { Injectable, BadRequestException } from '@nestjs/common';
 import { UserRepository } from './user.repository';
 import { User } from './user.model';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -20,13 +20,12 @@ export class UsersService {
       throw new BadRequestException(`Invalid ID: ${id}`);
     }
 
-    const
-      user = await this.userRepository.findById(id);
+    const user = await this.userRepository.findById(id);
 
     if (!user) {
       throw new BadRequestException(`User with ID ${id} not found`);
     }
 
-    return user
+    return user;
   }
 }

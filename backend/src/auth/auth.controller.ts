@@ -6,14 +6,18 @@ import {
   HttpStatus,
   Post,
   Request,
-  UseGuards
+  UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
+import { UsersService } from '../users/users.service';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private usersService: UsersService,
+  ) {}
 
   @HttpCode(HttpStatus.OK)
   @Post('login')
@@ -24,6 +28,6 @@ export class AuthController {
   @UseGuards(AuthGuard)
   @Get('profile')
   getProfile(@Request() req: any) {
-    return this.authService.findOne(req.user?.login);
+    return this.usersService.findOne(req.user?.login);
   }
 }

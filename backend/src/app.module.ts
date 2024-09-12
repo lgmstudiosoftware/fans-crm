@@ -13,7 +13,7 @@ import { User } from './users/user.model';
     UsersModule,
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env'
+      envFilePath: '.env',
     }),
     SequelizeModule.forRootAsync({
       imports: [ConfigModule],
@@ -27,7 +27,7 @@ import { User } from './users/user.model';
         database: configService.get<string>('MYSQL_DATABASE'),
         autoLoadModels: true,
         synchronize: true,
-        models: [User]
+        models: [User],
       }),
     }),
   ],
